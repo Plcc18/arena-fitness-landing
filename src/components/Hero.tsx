@@ -1,4 +1,4 @@
-import { ArrowRight, MessageCircle, Star } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { brand } from "../data/content";
 import { whatsappUrl } from "../lib/whatsapp";
 
