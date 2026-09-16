@@ -29,7 +29,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#topo" className="font-display text-2xl tracking-wide text-arena-ink">
+        <a href="#topo" className="flex items-center gap-2 font-display text-2xl tracking-wide text-arena-ink">
+          <img src="/arena-icon.png" alt="" className="h-9 w-9 object-contain" />
           ARENA<span className="text-arena-yellow">FITNESS</span>
         </a>
 

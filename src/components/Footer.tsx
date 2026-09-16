@@ -8,7 +8,8 @@ export function Footer() {
     <footer className="border-t border-arena-border bg-arena-bg py-12">
       <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
         <div className="text-center lg:text-left">
-          <p className="font-display text-2xl text-arena-ink">
+          <p className="flex items-center justify-center gap-2 font-display text-2xl text-arena-ink lg:justify-start">
+            <img src="/arena-icon.png" alt="" className="h-9 w-9 object-contain" />
             ARENA<span className="text-arena-yellow">FITNESS</span>
           </p>
           <p className="mt-1 text-sm text-arena-muted">{brand.address}</p>
