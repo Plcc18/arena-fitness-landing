@@ -10,8 +10,11 @@ import { Plans } from "./components/Plans";
 import { SocialProof } from "./components/SocialProof";
 import { Testimonials } from "./components/Testimonials";
 import { WhatsAppButton } from "./components/WhatsAppButton";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 function App() {
+  useSmoothScroll();
+
   return (
     <div className="min-h-screen bg-arena-bg">
       <Header />

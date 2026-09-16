@@ -1,17 +1,19 @@
 import { ArrowRight, MessageCircle, Star } from "lucide-react";
 import { brand } from "../data/content";
 import { whatsappUrl } from "../lib/whatsapp";
-import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden bg-arena-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section
+      id="topo"
+      className="animate-fade-in-up relative overflow-hidden bg-arena-bg pt-32 pb-20 sm:pt-40 sm:pb-28"
+    >
       <div className="bg-noise pointer-events-none absolute inset-0 opacity-40" />
       <div className="pointer-events-none absolute -top-40 right-0 h-128 w-lg rounded-full bg-arena-yellow/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 rounded-full bg-arena-gold/10 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-        <Reveal>
+        <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-arena-border bg-arena-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-arena-gold">
             <Star size={14} className="fill-arena-gold text-arena-gold" />
             {brand.instagramHandle} · {brand.city}/{brand.state}
@@ -52,9 +54,9 @@ export function Hero() {
             🔥 Matrícula com <strong className="text-arena-gold">50% OFF</strong> para quem está retornando à
             academia.
           </p>
-        </Reveal>
+        </div>
 
-        <Reveal className="relative" delay={150}>
+        <div className="relative">
           <div className="aspect-4/5 w-full overflow-hidden rounded-3xl border border-arena-border bg-linear-to-br from-arena-surface to-arena-surface-2 shadow-2xl">
             <img
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80"
@@ -67,7 +69,7 @@ export function Hero() {
             <p className="font-display text-3xl text-arena-yellow">5h–23h</p>
             <p className="text-xs text-arena-muted">Horário estendido de seg. a sex.</p>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
