@@ -1,0 +1,41 @@
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { faqs } from "../data/content";
+
+export function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section id="faq" className="bg-arena-surface py-16 sm:py-24">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <span className="text-sm font-semibold uppercase tracking-wider text-arena-yellow">Dúvidas frequentes</span>
+          <h2 className="font-display mt-3 text-4xl text-arena-ink sm:text-5xl">Ainda com dúvidas?</h2>
+        </div>
+
+        <div className="mt-12 space-y-3">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div key={faq.question} className="overflow-hidden rounded-2xl border border-arena-border bg-arena-bg">
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-semibold text-arena-ink">{faq.question}</span>
+                  <ChevronDown
+                    size={20}
+                    className={`shrink-0 text-arena-yellow transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {isOpen && <p className="px-6 pb-5 text-sm leading-relaxed text-arena-muted">{faq.answer}</p>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
