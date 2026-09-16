@@ -32,10 +32,6 @@ export function Testimonials() {
             </Reveal>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-xs text-arena-muted">
-          Depoimentos ilustrativos. Substitua pelos relatos reais dos seus alunos.
-        </p>
       </div>
     </section>
   );
