@@ -52,7 +52,7 @@ export const benefits = [
   },
   {
     title: "Localização privilegiada",
-    description: "No Junco, em Sobral, com fácil acesso e estacionamento — sem desculpa para faltar o treino.",
+    description: "No Centro, em Redenção, com fácil acesso e estacionamento — sem desculpa para faltar o treino.",
     icon: "MapPin",
   },
   {

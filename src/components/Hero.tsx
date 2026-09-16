@@ -62,7 +62,7 @@ export function Hero() {
               loading="eager"
             />
           </div>
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-2xl border border-arena-border bg-arena-surface p-5 shadow-xl lg:-left-10 lg:translate-x-0">
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-2xl border border-arena-border bg-arena-surface p-5 shadow-xl">
             <p className="font-display text-3xl text-arena-yellow">5h–23h</p>
             <p className="text-xs text-arena-muted">Horário estendido de seg. a sex.</p>
           </div>
