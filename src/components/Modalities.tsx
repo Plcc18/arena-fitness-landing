@@ -25,7 +25,7 @@ export function Modalities() {
               <img
                 src={images[index]}
                 alt={modality.title}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-linear-to-t from-arena-bg via-arena-bg/40 to-transparent" />

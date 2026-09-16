@@ -29,9 +29,9 @@ export function Benefits() {
             return (
               <div
                 key={benefit.title}
-                className="group rounded-2xl border border-arena-border bg-arena-surface p-6 transition-colors hover:border-arena-yellow/50"
+                className="group rounded-2xl border border-arena-border bg-arena-surface p-6 transition-colors duration-500 ease-out hover:border-arena-yellow/50"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-arena-yellow/10 text-arena-yellow transition-colors group-hover:bg-arena-yellow group-hover:text-arena-bg">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-arena-yellow/10 text-arena-yellow transition-colors duration-500 ease-out group-hover:bg-arena-yellow group-hover:text-arena-bg">
                   <Icon size={24} />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-arena-ink">{benefit.title}</h3>

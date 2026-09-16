@@ -16,7 +16,7 @@ export function CTASection() {
           href={whatsappUrl()}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-8 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform hover:scale-105 sm:w-auto sm:px-10"
+          className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-8 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-10"
         >
           <MessageCircle size={20} />
           Falar no WhatsApp

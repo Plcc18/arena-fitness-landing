@@ -24,7 +24,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         scrolled ? "bg-arena-bg/90 backdrop-blur border-b border-arena-border" : "bg-transparent"
       }`}
     >
@@ -38,7 +38,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-arena-muted transition-colors hover:text-arena-ink"
+              className="text-sm font-medium text-arena-muted transition-colors duration-500 ease-out hover:text-arena-ink"
             >
               {link.label}
             </a>
@@ -48,14 +48,14 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={brand.phoneHref}
-            className="flex items-center gap-2 text-sm font-medium text-arena-muted hover:text-arena-ink"
+            className="flex items-center gap-2 text-sm font-medium text-arena-muted transition-colors duration-500 ease-out hover:text-arena-ink"
           >
             <Phone size={16} />
             {brand.phoneDisplay}
           </a>
           <a
             href="#planos"
-            className="rounded-full bg-arena-yellow px-5 py-2.5 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform hover:scale-105"
+            className="rounded-full bg-arena-yellow px-5 py-2.5 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105"
           >
             Matricule-se
           </a>
@@ -71,13 +71,13 @@ export function Header() {
           <span className="relative block h-7 w-7">
             <Menu
               size={28}
-              className={`absolute inset-0 transition-all duration-300 ease-in-out ${
+              className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                 open ? "rotate-90 opacity-0" : "rotate-0 opacity-100"
               }`}
             />
             <X
               size={28}
-              className={`absolute inset-0 transition-all duration-300 ease-in-out ${
+              className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                 open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
               }`}
             />
@@ -87,7 +87,7 @@ export function Header() {
 
       <div
         aria-hidden={!open}
-        className={`grid transition-all duration-300 ease-in-out lg:hidden ${
+        className={`grid transition-all duration-500 ease-in-out lg:hidden ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
@@ -100,7 +100,7 @@ export function Header() {
                   href={link.href}
                   tabIndex={open ? 0 : -1}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-3 text-base font-medium text-arena-ink hover:bg-arena-surface"
+                  className="rounded-lg px-3 py-3 text-base font-medium text-arena-ink transition-colors duration-500 ease-out hover:bg-arena-surface"
                 >
                   {link.label}
                 </a>

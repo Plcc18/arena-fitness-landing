@@ -43,7 +43,7 @@ export function Location() {
                 </div>
                 <div>
                   <p className="font-bold text-arena-ink">Telefone</p>
-                  <a href={brand.phoneHref} className="text-sm text-arena-muted hover:text-arena-yellow">
+                  <a href={brand.phoneHref} className="text-sm text-arena-muted transition-colors duration-500 ease-out hover:text-arena-yellow">
                     {brand.phoneDisplay}
                   </a>
                 </div>
@@ -54,7 +54,7 @@ export function Location() {
               href={brand.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-arena-yellow px-6 py-3 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform hover:scale-105 sm:w-auto"
+              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-arena-yellow px-6 py-3 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto"
             >
               Ver no Google Maps
             </a>

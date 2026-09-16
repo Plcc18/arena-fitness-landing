@@ -27,10 +27,19 @@ export function FAQ() {
                   <span className="font-semibold text-arena-ink">{faq.question}</span>
                   <ChevronDown
                     size={20}
-                    className={`shrink-0 text-arena-yellow transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    className={`shrink-0 text-arena-yellow transition-transform duration-500 ease-out ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
-                {isOpen && <p className="px-6 pb-5 text-sm leading-relaxed text-arena-muted">{faq.answer}</p>}
+                <div
+                  aria-hidden={!isOpen}
+                  className={`grid transition-all duration-500 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-5 text-sm leading-relaxed text-arena-muted">{faq.answer}</p>
+                  </div>
+                </div>
               </div>
             );
           })}

@@ -18,14 +18,14 @@ export function Footer() {
             href={brand.instagramUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-arena-border text-arena-ink transition-colors hover:border-arena-yellow hover:text-arena-yellow"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-arena-border text-arena-ink transition-colors duration-500 ease-out hover:border-arena-yellow hover:text-arena-yellow"
             aria-label="Instagram da Arena Fitness"
           >
             <InstagramIcon size={18} />
           </a>
           <a
             href={brand.phoneHref}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-arena-border text-arena-ink transition-colors hover:border-arena-yellow hover:text-arena-yellow"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-arena-border text-arena-ink transition-colors duration-500 ease-out hover:border-arena-yellow hover:text-arena-yellow"
             aria-label="Ligar para a Arena Fitness"
           >
             <Phone size={18} />

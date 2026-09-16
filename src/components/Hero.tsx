@@ -33,14 +33,14 @@ export function Hero() {
               href={whatsappUrl("Olá! Quero garantir minha aula experimental gratuita 💪")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform hover:scale-105 sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-8"
             >
               <MessageCircle size={20} />
               Quero treinar grátis hoje
             </a>
             <a
               href="#planos"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-arena-border px-6 py-4 text-base font-bold text-arena-ink transition-colors hover:border-arena-yellow sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-arena-border px-6 py-4 text-base font-bold text-arena-ink transition-colors duration-500 ease-out hover:border-arena-yellow sm:w-auto sm:px-8"
             >
               Ver planos
               <ArrowRight size={18} />
