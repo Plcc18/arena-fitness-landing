@@ -27,10 +27,10 @@ export function Modalities() {
                   className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-arena-bg via-arena-bg/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <h3 className="text-lg font-bold text-arena-ink">{modality.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-arena-muted">{modality.description}</p>
+                <div className="absolute inset-0 bg-linear-to-t from-arena-bg from-10% via-arena-bg/70 via-45% to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex min-h-[55%] flex-col justify-end p-5">
+                  <h3 className="text-2xl font-bold text-arena-ink">{modality.title}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-arena-muted">{modality.description}</p>
                 </div>
               </div>
             </Reveal>
