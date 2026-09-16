@@ -1,11 +1,12 @@
 import { MessageCircle } from "lucide-react";
 import { whatsappUrl } from "../lib/whatsapp";
+import { Reveal } from "./Reveal";
 
 export function CTASection() {
   return (
     <section className="relative overflow-hidden bg-arena-bg py-16 sm:py-24">
       <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-arena-yellow/20 via-transparent to-arena-gold/10" />
-      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <Reveal className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-4xl text-arena-ink sm:text-5xl">
           Sua consistência começa <span className="text-gradient-yellow">hoje.</span>
         </h2>
@@ -21,7 +22,7 @@ export function CTASection() {
           <MessageCircle size={20} />
           Falar no WhatsApp
         </a>
-      </div>
+      </Reveal>
     </section>
   );
 }

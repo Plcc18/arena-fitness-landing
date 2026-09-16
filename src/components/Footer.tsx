@@ -1,11 +1,12 @@
 import { Phone } from "lucide-react";
 import { brand } from "../data/content";
 import { InstagramIcon } from "./icons/InstagramIcon";
+import { Reveal } from "./Reveal";
 
 export function Footer() {
   return (
     <footer className="border-t border-arena-border bg-arena-bg py-12">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
+      <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
         <div className="text-center lg:text-left">
           <p className="font-display text-2xl text-arena-ink">
             ARENA<span className="text-arena-yellow">FITNESS</span>
@@ -31,7 +32,7 @@ export function Footer() {
             <Phone size={18} />
           </a>
         </div>
-      </div>
+      </Reveal>
 
       <p className="mt-8 text-center text-xs text-arena-muted">
         © {new Date().getFullYear()} {brand.fullName}. Todos os direitos reservados.

@@ -1,12 +1,13 @@
 import { Clock, MapPin, Phone } from "lucide-react";
 import { brand, hours, mapsEmbedUrl } from "../data/content";
+import { Reveal } from "./Reveal";
 
 export function Location() {
   return (
     <section id="localizacao" className="bg-arena-bg py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
+          <Reveal>
             <span className="text-sm font-semibold uppercase tracking-wider text-arena-yellow">Localização</span>
             <h2 className="font-display mt-3 text-4xl text-arena-ink sm:text-5xl">Venha treinar com a gente</h2>
 
@@ -58,9 +59,9 @@ export function Location() {
             >
               Ver no Google Maps
             </a>
-          </div>
+          </Reveal>
 
-          <div className="aspect-square w-full overflow-hidden rounded-3xl border border-arena-border shadow-2xl">
+          <Reveal delay={150} className="aspect-square w-full overflow-hidden rounded-3xl border border-arena-border shadow-2xl">
             <iframe
               title="Localização da Arena Fitness no Google Maps"
               src={mapsEmbedUrl}
@@ -68,7 +69,7 @@ export function Location() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
