@@ -15,7 +15,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-arena-border bg-arena-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-arena-gold">
-            <Star size={14} className="fill-arena-gold text-arena-gold" />
+            {/* <Star size={14} className="fill-arena-gold text-arena-gold" /> */}
             {brand.instagramHandle} · {brand.city}/{brand.state}
           </div>
 
