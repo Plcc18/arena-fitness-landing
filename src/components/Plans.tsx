@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { plans } from "../data/content";
+import { trackWhatsAppClick } from "../lib/analytics";
 import { whatsappUrl } from "../lib/whatsapp";
 import { Reveal } from "./Reveal";
 
@@ -53,6 +54,7 @@ export function Plans() {
                   href={whatsappUrl(`Olá! Tenho interesse no plano ${plan.name} da Arena Fitness.`)}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackWhatsAppClick(`plano_${plan.name.toLowerCase()}`)}
                   className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition-all duration-500 ease-out hover:scale-105 ${
                     plan.highlight
                       ? "bg-arena-yellow text-arena-bg shadow-lg shadow-arena-yellow/30"

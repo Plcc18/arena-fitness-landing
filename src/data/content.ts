@@ -7,6 +7,7 @@ export const brand = {
   instagramUrl: "https://www.instagram.com/arenafitness41",
   city: "Redenção",
   state: "CE",
+  // Se este endereço mudar, atualize também o bloco application/ld+json em index.html.
   address: "R. Maj. José Gabriel, 133 - Centro, Redenção - CE, 62790-000",
   mapsUrl: "https://maps.app.goo.gl/5dT6SwsCEFsbMeDFA",
   phoneDisplay: "(88) 3614-1069",
@@ -14,6 +15,15 @@ export const brand = {
   // Ajuste para o número de WhatsApp real da recepção quando disponível.
   whatsappNumber: "558836141069",
   whatsappMessage: "Olá! Vim pelo site e quero saber mais sobre os planos da Arena Fitness 💪",
+};
+
+// IDs de rastreamento — deixe em branco até criar as contas. Enquanto estiverem vazios,
+// nenhum script de analytics é carregado (veja src/lib/analytics.ts).
+export const analytics = {
+  // Google Analytics 4 → Admin > Fluxos de dados > seu fluxo da Web. Formato: "G-XXXXXXXXXX"
+  ga4MeasurementId: "",
+  // Meta Events Manager > Pixels > seu pixel. É um número, ex: "1234567890123456"
+  metaPixelId: "",
 };
 
 // Gerado a partir de brand.fullName + brand.address para nunca ficar dessincronizado do endereço real.

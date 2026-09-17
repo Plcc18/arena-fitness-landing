@@ -1,4 +1,5 @@
 import { Benefits } from "./components/Benefits";
+import { CookieConsent } from "./components/CookieConsent";
 import { CTASection } from "./components/CTASection";
 import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
@@ -31,6 +32,7 @@ function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <CookieConsent />
     </div>
   );
 }

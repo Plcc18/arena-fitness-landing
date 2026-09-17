@@ -1,5 +1,6 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { brand } from "../data/content";
+import { trackWhatsAppClick } from "../lib/analytics";
 import { whatsappUrl } from "../lib/whatsapp";
 
 export function Hero() {
@@ -36,6 +37,7 @@ export function Hero() {
               href={whatsappUrl("Olá! Quero garantir minha aula experimental gratuita 💪")}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackWhatsAppClick("hero")}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-8"
             >
               <MessageCircle size={20} />
@@ -63,6 +65,7 @@ export function Hero() {
               alt="Aluno treinando musculação na Arena Fitness"
               className="h-full w-full object-cover"
               loading="eager"
+              fetchPriority="high"
             />
           </div>
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-2xl border border-arena-border bg-arena-surface p-5 shadow-xl">
