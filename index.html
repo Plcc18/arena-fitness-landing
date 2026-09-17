@@ -12,27 +12,85 @@
     <meta name="theme-color" content="#0A0A0C" />
     <title>Arena Fitness Academia | Redenção - CE</title>
 
+    <!--
+      TROQUE "https://SEU-DOMINIO-AQUI.com.br" pelo domínio real assim que definido —
+      aparece aqui, no JSON-LD logo abaixo, em public/robots.txt e em public/sitemap.xml.
+    -->
+    <link rel="canonical" href="https://SEU-DOMINIO-AQUI.com.br/" />
+
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://SEU-DOMINIO-AQUI.com.br/" />
     <meta property="og:title" content="Arena Fitness Academia | Redenção - CE" />
     <meta
       property="og:description"
       content="Musculação, funcional e aulas coletivas com horário estendido. Matricule-se e ganhe uma aula experimental gratuita."
     />
-    <meta property="og:image" content="/arena-icon.png" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://SEU-DOMINIO-AQUI.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Arena Fitness Academia | Redenção - CE" />
     <meta
       name="twitter:description"
       content="Musculação, funcional e aulas coletivas com horário estendido. Matricule-se e ganhe uma aula experimental gratuita."
     />
-    <meta name="twitter:image" content="/arena-icon.png" />
+    <meta name="twitter:image" content="https://SEU-DOMINIO-AQUI.com.br/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!--
+      Dados estruturados (Schema.org) para SEO local — ajuda o Google a mostrar
+      endereço, telefone e horário direto nos resultados de busca/Maps.
+      Se endereço, telefone, horário ou Instagram mudarem, atualize também
+      src/data/content.ts e o texto abaixo.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExerciseGym",
+        "@id": "https://SEU-DOMINIO-AQUI.com.br/#academia",
+        "name": "Arena Fitness Academia",
+        "image": "https://SEU-DOMINIO-AQUI.com.br/og-image.png",
+        "url": "https://SEU-DOMINIO-AQUI.com.br/",
+        "telephone": "+55 88 3614-1069",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Maj. José Gabriel, 133 - Centro",
+          "addressLocality": "Redenção",
+          "addressRegion": "CE",
+          "postalCode": "62790-000",
+          "addressCountry": "BR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "05:00",
+            "closes": "23:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "07:00",
+            "closes": "16:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday"],
+            "opens": "08:00",
+            "closes": "12:00"
+          }
+        ],
+        "sameAs": ["https://www.instagram.com/arenafitness41"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
