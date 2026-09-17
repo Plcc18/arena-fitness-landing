@@ -36,7 +36,10 @@ export function Footer() {
       </Reveal>
 
       <p className="mt-8 text-center text-xs text-arena-muted">
-        © {new Date().getFullYear()} {brand.fullName}. Todos os direitos reservados.
+        © {new Date().getFullYear()} {brand.fullName}. Todos os direitos reservados. ·{" "}
+        <a href="/privacidade.html" className="underline hover:text-arena-ink">
+          Política de Privacidade
+        </a>
       </p>
     </footer>
   );
