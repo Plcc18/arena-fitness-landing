@@ -41,7 +41,7 @@ export function Hero() {
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-8"
             >
               <MessageCircle size={20} />
-              Quero treinar grátis hoje
+              Quero treinar hoje
             </a>
             <a
               href="#planos"
@@ -68,7 +68,7 @@ export function Hero() {
               fetchPriority="high"
             />
           </div>
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-2xl border border-arena-border bg-arena-surface p-5 shadow-xl">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-2xl border border-arena-border bg-arena-surface p-5 shadow-xl">
             <p className="font-display text-3xl text-arena-yellow">5h–23h</p>
             <p className="text-xs text-arena-muted">Horário estendido de seg. a sex.</p>
           </div>
