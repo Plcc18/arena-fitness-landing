@@ -1,5 +1,5 @@
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef, type CSSProperties } from "react";
+import { useRef } from "react";
 import { EffectCards, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react";
 import { plans } from "../data/content";
@@ -57,11 +57,13 @@ function PlanCard({ plan, solid = false }: { plan: (typeof plans)[number]; solid
   );
 }
 
-// Repetimos os planos e, assim que o slide ativo muda (ou ao tocar numa ponta),
-// reposicionamos (sem animação) de volta para o conjunto do meio — dá a sensação de
-// carrossel infinito sem usar o `loop` nativo do Swiper, que reordena os slides no DOM
-// a cada arrasto e quebra a transição do efeito cards. `rewind` fica como rede de
-// segurança caso o usuário consiga, de alguma forma, chegar numa ponta real do array.
+// Repetimos os planos e, só depois que a transição de troca de slide termina de
+// verdade, reposicionamos (sem animação) de volta para o conjunto do meio — dá a
+// sensação de carrossel infinito sem usar o `loop` nativo do Swiper, que reordena os
+// slides no DOM a cada arrasto e quebra a transição do efeito cards. Recentralizar
+// ANTES da transição terminar (ex. no evento "slideChange") cancelaria a animação no
+// meio do caminho — por isso o gatilho é sempre pós-transição. `rewind` fica como rede
+// de segurança caso o usuário consiga, de alguma forma, chegar numa ponta real do array.
 const CAROUSEL_REPEATS = 9;
 const carouselMiddleRepeat = Math.floor(CAROUSEL_REPEATS / 2);
 const carouselPlans = Array.from({ length: CAROUSEL_REPEATS }, (_, repeat) =>
@@ -141,7 +143,7 @@ export function Plans() {
             cardsEffect={{ slideShadows: true, perSlideOffset: 8, perSlideRotate: 2 }}
             grabCursor
             autoHeight
-            speed={650}
+            speed={900}
             initialSlide={carouselInitialSlide}
             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
             onBeforeInit={(swiper: SwiperClass) => {
@@ -151,12 +153,11 @@ export function Plans() {
               }
             }}
             rewind
-            onSlideChange={recenterCarousel}
+            onSlideChangeTransitionEnd={recenterCarousel}
             onReachBeginning={recenterCarousel}
             onReachEnd={recenterCarousel}
             onSetTranslate={updateStackedOpacity}
             onSetTransition={syncStackedTransition}
-            style={{ "--swiper-wrapper-transition-timing-function": "cubic-bezier(0.22, 1, 0.36, 1)" } as CSSProperties}
             className="stacked-carousel mx-auto w-full max-w-xs"
           >
             {carouselPlans.map((plan) => (
