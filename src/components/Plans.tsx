@@ -1,5 +1,5 @@
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { EffectCards, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react";
 import { plans } from "../data/content";
@@ -20,7 +20,7 @@ function PlanCard({ plan, solid = false }: { plan: (typeof plans)[number]; solid
       }`}
     >
       {plan.badge && (
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-arena-yellow px-4 py-1 text-xs font-bold uppercase tracking-wide text-arena-bg">
+        <span className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-arena-yellow px-4 py-1 text-xs font-bold uppercase tracking-wide text-arena-bg">
           {plan.badge}
         </span>
       )}
@@ -57,13 +57,46 @@ function PlanCard({ plan, solid = false }: { plan: (typeof plans)[number]; solid
   );
 }
 
-// Repetido para dar "massa" suficiente ao loop do carrossel: o efeito cards precisa de
-// bem mais slides do que os 3 planos reais para girar sem travar/saltar.
-const carouselPlans = [...plans, ...plans, ...plans].map((plan, index) => ({
-  ...plan,
-  carouselKey: `${plan.name}-${index}`,
-}));
-const carouselInitialSlide = plans.length + plans.findIndex((plan) => plan.highlight);
+// Repetimos os planos e, assim que o slide ativo muda (ou ao tocar numa ponta),
+// reposicionamos (sem animação) de volta para o conjunto do meio — dá a sensação de
+// carrossel infinito sem usar o `loop` nativo do Swiper, que reordena os slides no DOM
+// a cada arrasto e quebra a transição do efeito cards. `rewind` fica como rede de
+// segurança caso o usuário consiga, de alguma forma, chegar numa ponta real do array.
+const CAROUSEL_REPEATS = 9;
+const carouselMiddleRepeat = Math.floor(CAROUSEL_REPEATS / 2);
+const carouselPlans = Array.from({ length: CAROUSEL_REPEATS }, (_, repeat) =>
+  plans.map((plan) => ({ ...plan, carouselKey: `${plan.name}-${repeat}` })),
+).flat();
+const carouselInitialSlide =
+  carouselMiddleRepeat * plans.length + plans.findIndex((plan) => plan.highlight);
+
+function recenterCarousel(swiper: SwiperClass) {
+  const currentRepeat = Math.floor(swiper.activeIndex / plans.length);
+  if (currentRepeat !== carouselMiddleRepeat) {
+    const relativeIndex = swiper.activeIndex % plans.length;
+    swiper.slideTo(carouselMiddleRepeat * plans.length + relativeIndex, 0, false);
+  }
+}
+
+// Opacidade contínua por card, proporcional à distância real (`progress`) até o
+// ativo — atualizada a cada frame do arrasto, então o próximo card vai sendo
+// revelado suavemente enquanto você arrasta, não só depois de soltar.
+function updateStackedOpacity(swiper: SwiperClass) {
+  swiper.slides.forEach((slideEl) => {
+    const distance = Math.abs(slideEl.progress ?? 0);
+    const opacity = Math.max(0, Math.min(1, 2 - distance));
+    slideEl.style.opacity = String(opacity);
+    slideEl.style.pointerEvents = opacity < 0.05 ? "none" : "auto";
+  });
+}
+
+// Mantém a duração da transição de opacidade sempre igual à que o Swiper está
+// usando no momento (0 durante o arrasto, `speed` ao soltar/recentralizar).
+function syncStackedTransition(swiper: SwiperClass, duration: number) {
+  swiper.slides.forEach((slideEl) => {
+    slideEl.style.transitionDuration = `${duration}ms`;
+  });
+}
 
 export function Plans() {
   const prevRef = useRef<HTMLButtonElement>(null);
@@ -105,10 +138,10 @@ export function Plans() {
           <Swiper
             modules={[EffectCards, Navigation]}
             effect="cards"
-            cardsEffect={{ slideShadows: false, perSlideOffset: 8, perSlideRotate: 2 }}
-            loop
+            cardsEffect={{ slideShadows: true, perSlideOffset: 8, perSlideRotate: 2 }}
             grabCursor
             autoHeight
+            speed={650}
             initialSlide={carouselInitialSlide}
             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
             onBeforeInit={(swiper: SwiperClass) => {
@@ -117,10 +150,17 @@ export function Plans() {
                 swiper.params.navigation.nextEl = nextRef.current;
               }
             }}
-            className="mx-auto w-full max-w-xs"
+            rewind
+            onSlideChange={recenterCarousel}
+            onReachBeginning={recenterCarousel}
+            onReachEnd={recenterCarousel}
+            onSetTranslate={updateStackedOpacity}
+            onSetTransition={syncStackedTransition}
+            style={{ "--swiper-wrapper-transition-timing-function": "cubic-bezier(0.22, 1, 0.36, 1)" } as CSSProperties}
+            className="stacked-carousel mx-auto w-full max-w-xs"
           >
             {carouselPlans.map((plan) => (
-              <SwiperSlide key={plan.carouselKey} className="rounded-3xl">
+              <SwiperSlide key={plan.carouselKey} className="rounded-3xl pt-5">
                 <PlanCard plan={plan} solid />
               </SwiperSlide>
             ))}

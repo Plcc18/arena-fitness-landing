@@ -69,6 +69,16 @@ body {
   background-size: 24px 24px;
 }
 
+/* Carrossel de cards empilhados: a opacidade de cada slide é controlada via JS
+   (proporcional à distância real do card ativo, atualizada a cada frame do
+   arrasto) para esconder o resto da pilha sem perder o acompanhamento contínuo
+   do dedo. A duração da transição também é sincronizada via JS com o `speed`
+   que o Swiper está usando no momento (0 durante o arrasto, 650ms ao soltar). */
+.stacked-carousel .swiper-slide {
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
 @keyframes fade-in-down {
   from {
     opacity: 0;
