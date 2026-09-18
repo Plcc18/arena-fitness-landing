@@ -71,12 +71,16 @@ const carouselPlans = Array.from({ length: CAROUSEL_REPEATS }, (_, repeat) =>
 ).flat();
 const carouselInitialSlide =
   carouselMiddleRepeat * plans.length + plans.findIndex((plan) => plan.highlight);
+const carouselMiddleIndex = carouselMiddleRepeat * plans.length;
+// Só recentraliza depois de ~2 voltas completas pra fora do meio — assim o "fecha o
+// ciclo e volta pro primeiro" não coincide quase sempre com um reposicionamento.
+const carouselDriftTolerance = plans.length * 2;
 
 function recenterCarousel(swiper: SwiperClass) {
-  const currentRepeat = Math.floor(swiper.activeIndex / plans.length);
-  if (currentRepeat !== carouselMiddleRepeat) {
+  const drift = swiper.activeIndex - carouselMiddleIndex;
+  if (Math.abs(drift) > carouselDriftTolerance) {
     const relativeIndex = swiper.activeIndex % plans.length;
-    swiper.slideTo(carouselMiddleRepeat * plans.length + relativeIndex, 0, false);
+    swiper.slideTo(carouselMiddleIndex + relativeIndex, 0, false);
   }
 }
 
