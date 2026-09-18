@@ -12,7 +12,7 @@ export function CTASection() {
           Sua consistência começa <span className="text-gradient-yellow">hoje.</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-arena-muted">
-          Fale agora com a nossa equipe pelo WhatsApp e garanta sua aula experimental gratuita na Arena Fitness.
+          Fale agora com a nossa equipe pelo WhatsApp e garanta sua aula experimental na Arena Fitness.
         </p>
         <a
           href={whatsappUrl()}
