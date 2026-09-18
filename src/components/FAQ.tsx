@@ -23,7 +23,7 @@ export function FAQ() {
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                     aria-expanded={isOpen}
                   >
                     <span className="font-semibold text-arena-ink">{faq.question}</span>
