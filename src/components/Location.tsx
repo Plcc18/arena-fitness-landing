@@ -55,8 +55,9 @@ export function Location() {
               href={brand.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-arena-yellow px-6 py-3 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto"
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-3 text-sm font-bold text-arena-bg shadow-lg shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto"
             >
+              <MapPin size={18} />
               Ver no Google Maps
             </a>
           </Reveal>
