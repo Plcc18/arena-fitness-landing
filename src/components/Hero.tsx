@@ -1,7 +1,8 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { brand } from "../data/content";
 import { trackWhatsAppClick } from "../lib/analytics";
 import { whatsappUrl } from "../lib/whatsapp";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 
 export function Hero() {
   return (
@@ -40,7 +41,7 @@ export function Hero() {
               onClick={() => trackWhatsAppClick("hero")}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-6 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-8"
             >
-              <MessageCircle size={20} />
+              <WhatsAppIcon size={20} />
               Quero treinar hoje
             </a>
             <a

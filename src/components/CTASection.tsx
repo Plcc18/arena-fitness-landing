@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { trackWhatsAppClick } from "../lib/analytics";
 import { whatsappUrl } from "../lib/whatsapp";
 import { Reveal } from "./Reveal";
@@ -21,7 +21,7 @@ export function CTASection() {
           onClick={() => trackWhatsAppClick("cta_final")}
           className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-arena-yellow px-8 py-4 text-base font-bold text-arena-bg shadow-xl shadow-arena-yellow/30 transition-transform duration-500 ease-out hover:scale-105 sm:w-auto sm:px-10"
         >
-          <MessageCircle size={20} />
+          <WhatsAppIcon size={20} />
           Falar no WhatsApp
         </a>
       </Reveal>
